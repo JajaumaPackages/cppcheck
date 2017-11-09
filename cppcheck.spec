@@ -1,6 +1,6 @@
 Name:           cppcheck
 Version:        1.81
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Tool for static C/C++ code analysis
 Group:          Development/Languages
 License:        GPLv3+
@@ -19,7 +19,11 @@ BuildRequires:  pcre-devel
 BuildRequires:  tinyxml2-devel >= 2.1.0
 BuildRequires:  docbook-style-xsl
 BuildRequires:  libxslt
+%if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  qt5-devel
+%else
+BuildRequires:  qt5-qtbase-devel
+%endif
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
 
@@ -94,6 +98,9 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Thu Nov 09 2017 Jajauma's Packages <jajauma@yandex.ru> - 1.81-2
+- Fix Qt5 dependency on RHEL7
+
 * Wed Oct 18 2017 Susi Lehtola <jussilehtola@fedoraproject.org> - 1.81-1
 - Update to 1.81.
 

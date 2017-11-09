@@ -22,6 +22,7 @@ BuildRequires:  libxslt
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  qt5-devel
 %else
+BuildRequires:  qt5-linguist
 BuildRequires:  qt5-qtbase-devel
 %endif
 BuildRequires:  cmake
